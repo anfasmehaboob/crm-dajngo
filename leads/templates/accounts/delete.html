@@ -1,0 +1,14 @@
+{% extends 'accounts/main.html'  %}
+
+{% block content%}
+
+<p>are you sure you want to delete <span style="font-size: 20px;text-transform: capitalize;" class="text-danger" > {{item}}</span></p>
+<a href="{% url 'home' %}">cancel</a>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <input type="submit" name="delete">
+
+</form>
+
+{% endblock %}

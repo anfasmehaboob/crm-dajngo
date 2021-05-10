@@ -1,0 +1,47 @@
+{% extends 'accounts/main.html'  %}
+
+{% block content%}
+<style>
+.downcard{
+    animation: down 1s;
+}
+@keyframes down{
+    0%{
+        opacity: 0;
+        top: 100px;
+    }
+    100%{
+        opacity: 1;
+        top: 0px;
+    }
+}
+</style>
+<br>
+
+<div class="row">
+    <div class="col-md downcard">
+        <div class="card card-body">
+            <h5>Products</h5>
+        </div>
+        <div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'createproduct' %}">Create product</a>
+
+            <table class="table">
+                <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+                {% for i in products%}
+                    <tr>
+                        <td>{{i.name}}</td>
+                        <td>{{i.catagory}}</td>
+                        <td>{{i.price}}</td>
+                    </tr>
+                {% endfor%}
+            </table>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
